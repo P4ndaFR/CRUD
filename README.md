@@ -1,7 +1,7 @@
 # CRUD
 CRUD ! CRUD CRUD ? CRUUUUUUD ! CRUD CRUD.
 
-## Configuration du /etc/host
+## Configuration du /etc/hosts
 
 ```
 nano /etc/host
