@@ -63,7 +63,7 @@ function modify_file(){
 	$fichier = $_POST['fichier'];
 
 
-	$query=$pdo->prepare("update document set fichier='".$fichier."'";
+	$query=$pdo->prepare("update document set fichier='".$fichier."'");
 	$query->execute();
 
 }
