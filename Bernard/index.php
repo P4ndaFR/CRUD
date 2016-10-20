@@ -1,6 +1,7 @@
 <?php
 require_once "../limonade/lib/limonade.php";
-include "model/InitDB.php";
+require "model/InitDB.php";
+
 
 dispatch("/hello","hello");
 dispatch("/home","home");
