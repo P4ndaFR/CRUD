@@ -18,19 +18,40 @@
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script type="text/javascript" src="js/css-framework.js"></script>
 
-  <ul id="slide-out" class="side-nav fixed">
-    <img src="../rentree/images/logo_ISEN.png" class="responsive-img"/>
-    <div class=container>
-      <h5>Documents de rentrée<h5>
-      <li><a href="#!">First Sidebar Link</a></li>
-      <li><a href="#!">Second Sidebar Link</a></li>
-    </div>
+    <ul id="slide-out" class="side-nav fixed">
+      <img src="../rentree/images/logo_ISEN.png" class="responsive-img"/>
+      <div class=container>
+        <h5>Documents de rentrée<h5>
+              <ul class="collapsible" data-collapsible="accordion">
+                  <li>
+                    <div class="collapsible-header">
+                      <i class="material-icons">keyboard_arrow_down</i><a>Fichiers</a>
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li><a href="">Ajouter un fichier</a></li>
+                        <li><a href="">Supprimer un fichier</a></li>
+                        <li><a href="">Modifier un fichier</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header">
+                      <i class="material-icons">keyboard_arrow_down</i><a>Promotions</a>
+                    </div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li><a href="">Ajouter une promotion</a></li>
+                        <li><a href="">Supprimer une promotion</a></li>
+                        <li><a href="">Modifier une promotion</a></li>
+                      </ul>
+                    </div>
+                  </li>
+              </ul>
+      </div>
   </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
 
-  
   <?php $content ?>
-
 
   </body>
 </html>
