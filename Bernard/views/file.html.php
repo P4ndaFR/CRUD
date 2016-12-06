@@ -31,16 +31,3 @@
 		?>
 	</ul>
 </div>
-<<<<<<< HEAD
-=======
-
-<div id="modify" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-</div>
->>>>>>> 0c441d4098d802e920c4cf2a9b61d5da9f5903f1
