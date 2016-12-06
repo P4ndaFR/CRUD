@@ -21,10 +21,44 @@
 
 <div id="modify" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <h4>Modification du fichier : <!-- ici tu met le nom du fichier --></h4>
     </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+	    <div class="modal-footer">
+				<form>
+					<div class="container">
+						<h5>Saisissez le libellé du fichier</h5>
+						<div class="">
+          		<input placeholder="" id="first_name" type="text" class="validate">
+          		<label for="file">Libellé du Fichier</label>
+        		</div>
+						<h5>Cochez les promos à lier</h5>
+						<div class="row">
+							<div class="input-field inline col l2">
+            		<input placeholder="Rang" id="rang" type="number" class="validate">
+          		</div>
+							<br/>
+							<p class="col l6">
+	      				<input type="checkbox" id="test5"/>
+	      				<label for="test5">Promo 1</label>
+							</p>
+						</div>
+						<div class="row">
+							<div class="input-field inline col l2">
+            		<input placeholder="Rang" id="rang" type="number" class="validate">
+          		</div>
+							<br/>
+							<p class="col l6">
+	      				<input type="checkbox" id="test6" checked="checked"/>
+	      				<label for="test6">Promo 2</label>
+							</p>
+						</div>
+
+
+
+
+
+					</div>
+      		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sauvegarder et quitter</a>
+			</form>
     </div>
 </div>
