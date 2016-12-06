@@ -50,8 +50,8 @@
               </ul>
       </div>
   </ul>
-
-  <?php $content ?>
-
+<div>
+  <?php echo $content ?>
+</div>
   </body>
 </html>

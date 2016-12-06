@@ -1,89 +1,81 @@
 <?php
 
+function connect(){
 
+	//variable de connexion
+	$dsn='mysql:dbname=front;host=127.0.0.1'; //db : doc_rentree
+	$user='front'; //CIR32016
+	$password='front'; //CIR32016
 
-function print_file(){
-
-		
-	$dsn='mysql:dbname=front;host=127.0.0.1';
-	$user='front';
-	$password='front';
-
+	//essai de la connexion
 	try {
 		$pdo = new PDO($dsn,$user,$password);
 	} catch (PDOException $e) {
 		echo "Connexion échouée : ".$e->getMessage();
 	}
 
+	return $pdo;
 
+}
+
+//fonction d'affichage
+function print_file(){
+
+	$pdo=connect();
+
+	//requête d'affichage des fichiers
 	$query=$pdo->prepare("select fichier from document group by fichier");
+	//execution
 	$query->execute();
-		
-	$fichiers=$query->fetchAll();
+	
+	//mettre le résultat de l'execution dans un tableau
+	$fichiers=$query->fetchAll(PDO::FETCH_ASSOC);
+	//donner le tableau en paramètre
 	set('fichiers',$fichiers);
+	//vue avec layout
 	return render('../views/file.html.php','../views/layout.html.php');
-
 
 }
 
 function add_file(){
 
-	$dsn='mysql:dbname=front;host=127.0.0.1';
-	$user='front';
-	$password='front';
+	$pdo=connect();
 
-	try {
-		$pdo = new PDO($dsn,$user,$password);
-	} catch (PDOException $e) {
-		echo "Connexion échouée : ".$e->getMessage();
-	}
-
+	//récupération des valeurs du formulaire
 	$fichier = $_POST['fichier'];
 
-	
-	$query=$pdo->prepare("insert into fichier(nom) values('".$fichier."')");
-	$query->execute();
+	//si valeur null ne pas faire la requête car inutile
+	if ($fichier!= null) {
+		$query=$pdo->prepare("insert into fichier(nom) values('".$fichier."')");
+		$query->execute();
+	}
+
+
 
 }
 
 function modify_file(){
 
-	$dsn='mysql:dbname=front;host=127.0.0.1';
-	$user='front';
-	$password='front';
+	$pdo=connect();
 
-	try {
-		$pdo = new PDO($dsn,$user,$password);
-	} catch (PDOException $e) {
-		echo "Connexion échouée : ".$e->getMessage();
-	}
-
-	$fichier = $_POST['fichier'];
-
-
-	$query=$pdo->prepare("update fichier set nom='".$fichier."'");
-	$query->execute();
+//récupération du nom fichier, du nom des promos, du libelle, des rangs
 
 }
 
 function delete_file(){
 
-	$dsn='mysql:dbname=front;host=127.0.0.1';
-	$user='front';
-	$password='front';
-
-	try {
-		$pdo = new PDO($dsn,$user,$password);
-	} catch (PDOException $e) {
-		echo "Connexion échouée : ".$e->getMessage();
-	}
-
+	$pdo=connect();
+	
+	//récupération de la valeur de la liste sélectionner
+	//pb récupération doit être faite par rapport à la ligne
+	//-> mettre un form dans le foreach de l'affichage qui envoie le nom de fichier de la ligne ou on a cliquer
 	$fichier = $_POST['fichier'];
 
 
-	$query=$pdo->prepare("delete fichier where nom='".$fichier."'");
+	$query=$pdo->prepare("delete from document where fichier='".$fichier."'");
 	$query->execute();
 
 }
+
 
 ?>

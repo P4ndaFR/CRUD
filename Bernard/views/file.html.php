@@ -2,14 +2,11 @@
 	<tr>
 		<th>Fichier</th>
 	</tr>
-	<tr>
-		<td>
-		test
 			<?php
-				/*foreach ($fichiers as $fichier) {
-					echo $fichier;
-				}*/
+				foreach ($fichiers as $key=>$fichier) {
+					foreach ($fichier as $key1=>$value){
+						echo "<tr><td>".$value."</td></tr>";
+					}
+				}
 			?>
-		</td>
-	</tr>
 </table>
