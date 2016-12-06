@@ -8,8 +8,14 @@
 </nav>
 <div class="container">
 	<ul class="collection">
-      	<li class="collection-item">Fichier<a href="http://front.rentree.fr/CRUD/Bernard/?/delete_file"><i class="material-icons right">delete</i></a>
-					<a href="#modify" class="modal-trigger"><i class="material-icons right">reorder</i></a></li>
+		<?php
+				foreach ($fichiers as $key=>$fichier) {
+					foreach ($fichier as $key1=>$value){
+						echo "<li class='collection-item'>".$value."<a href='http://front.rentree.fr/CRUD/Bernard/?/delete_file'><i class='material-icons right'>delete</i></a>
+					<a href='#modify' class='modal-trigger'><i class='material-icons right'>reorder</i></a></li>";
+					}
+				}
+			?>
 	</ul>
 </div>
 
@@ -22,16 +28,3 @@
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
 </div>
-
-<table>
-	<tr>
-		<th>Fichier</th>
-	</tr>
-			<?php
-				foreach ($fichiers as $key=>$fichier) {
-					foreach ($fichier as $key1=>$value){
-						echo "<tr><td>".$value."</td></tr>";
-					}
-				}
-			?>
-</table>
