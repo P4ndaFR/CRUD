@@ -2,6 +2,11 @@ header, body, footer {
      padding-left: 350px;
 }
 
+#menu-title {
+     background-color: #E20613;
+     font-size: 2em;
+}
+
 @media only screen and (max-width : 992px) {
     header, body, footer {
       padding-left: 0;
