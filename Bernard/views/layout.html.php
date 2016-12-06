@@ -12,10 +12,6 @@
     <title>Back-Office</title>
   </head>
   <body>
-    <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <ul id="slide-out" class="side-nav fixed">
       <img src="../rentree/images/logo_ISEN.png" class="responsive-img"/>
       <div class=container>
@@ -50,7 +46,10 @@
   </ul>
 
   <?php echo $content ?>
-
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
   <script type="text/javascript" src="js/css-framework.js"></script>
   </body>
 </html>

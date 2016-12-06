@@ -8,7 +8,7 @@
 <div class="container">
 	<ul class="collection">
       	<li class="collection-item">Fichier<a href="http://front.rentree.fr/CRUD/Bernard/?/delete_file"><i class="material-icons right">delete</i></a>
-					<a href="#modify"><i class="material-icons right">reorder</i></a></li>
+					<a href="#modify" class="modal-trigger"><i class="material-icons right">reorder</i></a></li>
 	</ul>
 </div>
 
