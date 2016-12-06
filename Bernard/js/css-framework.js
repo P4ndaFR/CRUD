@@ -1,6 +1,7 @@
 $( document ).ready(function()
 {
   $(".modal").modal();
+  $('select').material_select();
   //$(".dropdown-button").dropdown();
   $(".button-collapse").sideNav();
   $('.collapsible').collapsible({
