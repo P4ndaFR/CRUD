@@ -24,7 +24,7 @@ function print_file(){
 	$pdo=connect();
 
 	//requête d'affichage des fichiers
-	$query=$pdo->prepare("select fichier from document group by fichier");
+	$query=$pdo->prepare("select fichier,promo,rang from document group by fichier,promo,rang");
 	//execution
 	$query->execute();
 	
