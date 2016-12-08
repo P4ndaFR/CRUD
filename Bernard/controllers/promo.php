@@ -42,6 +42,8 @@ function modify_promo(){
 
 	$query=$pdo->prepare("update document set promo='".$promo."' where promo='".$oldpromo."'");
 	$query->execute();
+	$query=$pdo->prepare("update promo set nom='".$promo."' where nom='".$oldpromo."'");
+	$query->execute();
 
 }
 
@@ -56,6 +58,8 @@ function delete_promo(){
 	
 	$query=$pdo->prepare("delete from document where promo='".$promo."'");
 	$query->execute();
+	$query2=$pdo->prepare("delete from promo where nom='".$promo."'");
+	$query2->execute();
 
 }
 

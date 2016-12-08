@@ -24,7 +24,7 @@ function print_file(){
 	$pdo=connect();
 
 	//requête d'affichage des fichiers
-	$query=$pdo->prepare("select fichier from document group by fichier");
+	$query=$pdo->prepare("select fichier,promo,rang from document group by fichier,promo,rang");
 	//execution
 	$query->execute();
 	
@@ -65,7 +65,7 @@ function modify_file(){
 function delete_file(){
 
 	$pdo=connect();
-	
+
 	//récupération de la valeur de la liste sélectionner
 	//pb récupération doit être faite par rapport à la ligne
 	//-> mettre un form dans le foreach de l'affichage qui envoie le nom de fichier de la ligne ou on a cliquer
@@ -74,6 +74,8 @@ function delete_file(){
 
 	$query=$pdo->prepare("delete from document where fichier='".$fichier."'");
 	$query->execute();
+	$query2=$pdo->prepare("delete from fichier where nom='".$fichier."'");
+	$query2->execute();
 
 }
 
