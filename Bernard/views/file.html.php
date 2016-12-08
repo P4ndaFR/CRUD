@@ -65,8 +65,8 @@
     <i class="large material-icons">add</i>
   </a>
 </div>
-
 <!-- Ajout d'un fichier -->
+
 <div id="add" class="modal">
     <div class="modal-content">
       <h4>Ajout d'un nouveau fichier :</h4>
@@ -97,8 +97,8 @@
           		</div>
 							<br/>
 							<p class="col l6">
-	      				<input type="checkbox" id="test5"/>
-	      				<label for="test5">Promo 1</label>
+	      				<input type="checkbox" id="test52"/>
+	      				<label for="test52">Promo 1</label>
 							</p>
 						</div>
 						<div class="row">
@@ -107,8 +107,8 @@
           		</div>
 							<br/>
 							<p class="col l6">
-	      				<input type="checkbox" id="test6" checked="checked"/>
-	      				<label for="test6">Promo 2</label>
+	      				<input type="checkbox" id="test63" checked="checked"/>
+	      				<label for="test63">Promo 2</label>
 							</p>
 						</div>
 
