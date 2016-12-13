@@ -9,7 +9,7 @@ function print_promo(){
 	$query=$pdo->prepare("select promo from document group by promo");
 	//execution
 	$query->execute();
-	
+
 	//mettre le résultat de l'execution dans un tableau
 	$promos=$query->fetchAll(PDO::FETCH_ASSOC);
 	//donner le tableau en paramètre
@@ -55,7 +55,7 @@ function delete_promo(){
 	//pb récupération doit être faite par rapport à la ligne
 	$promo = $_POST['promo'];
 
-	
+
 	$query=$pdo->prepare("delete from document where promo='".$promo."'");
 	$query->execute();
 	$query2=$pdo->prepare("delete from promo where nom='".$promo."'");
