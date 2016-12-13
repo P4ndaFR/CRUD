@@ -46,7 +46,7 @@
 							    </div>
 
 								    <div class="modal-footer">
-											<form>
+											<form action="index.php/?/fichier/modifier" method="post">
 												<div class="container">
 													<h5>Saisissez le libellé du fichier</h5>
 													<div class="">
@@ -58,18 +58,18 @@
 
 									echo '<div class="row">
 											<div class="input-field inline col l2">
-							            		<input placeholder="'.$rangs[$j].'" id="rang" type="number" class="validate">
+							            		<input placeholder="'.$rangs[$j].'" id="rang" name="rang" type="number" class="validate">
 							          		</div>
 											<br/>
 											<p class="col l6">
-								      			<input type="checkbox" id="'.$i.''.$j.'"/>
+								      			<input type="checkbox" id="promo" name="promo" />
 								      			<label for="'.$i.''.$j.'">'.$promos[$j].'</label>
 											</p>
 										</div>';
 							}
 						echo '
 											</div>
-											<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sauvegarder et quitter</a>
+											<input type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat" value="Sauvegarder et quitter" />
 										</form>
 								</div>
 							</div>

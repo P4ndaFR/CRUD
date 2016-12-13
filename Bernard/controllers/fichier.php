@@ -58,6 +58,7 @@ function modify_file(){
 
 	$pdo=connect();
 
+ 	
 //récupération du nom fichier, du nom des promos, du libelle, des rangs
 
 }
