@@ -19,7 +19,7 @@
             echo '
               <div id="m'.$i.'" class="modal">
                   <div class="modal-content">
-                    <h4>Modification du promo : '.$promo['promo'].'</h4>
+                    <h4>Modification de la promo : '.$promo['promo'].'</h4>
                   </div>
 
                     <div class="modal-footer">
