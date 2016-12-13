@@ -12,13 +12,37 @@
 	<ul class="collection">
 		<?php
 			$i=0;
+			$n=1;
+			$test1='';
+			$test2='';
+			$keep='';
+			$promos=array();
+			$rangs=array();
 				foreach ($fichiers as $fichier) {
-						echo '<li class="collection-item">'.$fichier['fichier'].'<a href="http://front.rentree.fr/CRUD/Bernard/?/delete_file"><i class="material-icons right">delete</i></a>
+					//créer une variable $test qui prend la valeur de fichier
+					if ($i==0){
+						$test2=$fichier['fichier'];
+					}
+					if ($n==1) {
+						$test1=$fichier['fichier'];
+					} elseif ($n==2) {
+						$test2=$fichier['fichier'];
+						$n=0;
+					}
+					//if -> $fichier=$test ne rien faire | dernier doublon -> garder
+					if ($test1!=$test2) {
+						if ($fichier['fichier']!=$test1){
+							$keep=$test1;
+						} else {
+							$keep=$test2;
+						}
+					//if = ajoute dans un tableau
+						echo '<li class="collection-item">'.$keep.'<a href="http://front.rentree.fr/CRUD/Bernard/?/delete_file"><i class="material-icons right">delete</i></a>
 					<a href="#m'.$i.'" class="modal-trigger"><i class="material-icons right">reorder</i></a></li>';
 						echo '
 							<div id="m'.$i.'" class="modal">
 							    <div class="modal-content">
-							      <h4>Modification du fichier : '.$fichier['fichier'].'</h4>
+							      <h4>Modification du fichier : '.$keep.'</h4>
 							    </div>
 
 								    <div class="modal-footer">
@@ -30,38 +54,38 @@
 							          					<label for="file">Libellé du Fichier</label>
 							        				</div>
 													<h5>Cochez les promos à lier</h5>';
-						//require "./controllers/fichier.php";
-						//$promos=print_file_promo();
-						//echo $promos;
-						/*
-						foreach ($promos as $key2=>$promo) {
-							foreach ($promo as $key3=>$name) {
-								echo '<div class="row">
-										<div class="input-field inline col l2">
-						            		<input placeholder="Rang" id="rang" type="number" class="validate">
-						          		</div>
-										<br/>
-										<p class="col l6">
-							      			<input type="checkbox" id="test5"/>
-							      			<label for="test5">'.$name.'</label>
-										</p>
-									</div>';
+							for ($j=0;$j<count($promos);$j++) {
+
+									echo '<div class="row">
+											<div class="input-field inline col l2">
+							            		<input placeholder="'.$rangs[$j].'" id="rang" type="number" class="validate">
+							          		</div>
+											<br/>
+											<p class="col l6">
+								      			<input type="checkbox" id="'.$i.''.$j.'"/>
+								      			<label for="'.$i.''.$j.'">'.$promos[$j].'</label>
+											</p>
+										</div>';
 							}
-						}*/
-					echo '
+						echo '
 											</div>
 											<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sauvegarder et quitter</a>
 										</form>
 								</div>
 							</div>
 					';
+					$promos=array();
+					$rangs=array();
+				}
+					$promos[]=$fichier['promo'];
+					$rangs[]=$fichier['rang'];
 					$i++;
+					$n++;
 
 				}
 			?>
 	</ul>
 </div>
-
 <div id="modify" class="modal">
     <div class="modal-content">
       <h4>Modification du fichier : <!-- ici tu met le nom du fichier --></h4>
