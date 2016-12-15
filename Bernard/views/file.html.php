@@ -46,7 +46,7 @@
 										<i class="material-icons right">delete</i>
 									</a>
 									<a href="#m'.$i.'" class="modal-trigger">
-										<i class="material-icons right">reorder</i>
+										<i class="material-icons right">mode_edit</i>
 									</a>
 								</li>
 							</form>';
