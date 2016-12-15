@@ -13,6 +13,7 @@
 		<?php
 			$i=0;
 			$n=1;
+			$p='';
 			$test1='';
 			$test2='';
 			$keep='';
@@ -37,8 +38,19 @@
 							$keep=$test2;
 						}
 					//if = ajoute dans un tableau
-						echo '<li class="collection-item">'.$keep.'<a href="http://front.rentree.fr/CRUD/Bernard/?/delete_file"><i class="material-icons right">delete</i></a>
-					<a href="#m'.$i.'" class="modal-trigger"><i class="material-icons right">mode_edit</i></a></li>';
+
+						echo '<form action="index.php/?/fichier/supprimer" method="GET">
+								<li class="collection-item">'.$keep.'
+									<input type="hidden" name="fichier" value="'.$keep.'" />
+									<a href="index.php/?/fichier/supprimer&fichier='.$keep.'">
+										<i class="material-icons right">delete</i>
+									</a>
+									<a href="#m'.$i.'" class="modal-trigger">
+										<i class="material-icons right">reorder</i>
+									</a>
+								</li>
+							</form>';
+
 						echo '
 							<div id="m'.$i.'" class="modal">
 							    <div class="modal-content">
@@ -46,31 +58,57 @@
 							    </div>
 
 								    <div class="modal-footer">
-											<form>
+											<form action="index.php/?/fichier/modifier" method="POST">
 												<div class="container">
 													<h5>Saisissez le libellé du fichier</h5>
 													<div class="">
-							          					<input placeholder="" id="first_name" type="text" class="validate">
+							          					<input id="first_name" type="text" class="validate" name="libelle">
 							          					<label for="file">Libellé du Fichier</label>
+							          					<input name="fichier" value="'.$keep.'" type="hidden"/>
 							        				</div>
 													<h5>Cochez les promos à lier</h5>';
 
 							for ($j=0;$j<count($promos);$j++) {
 
 									echo '<div class="row">
+											<input name="max" value="'.$j.'" type="hidden" />
 											<div class="input-field inline col l2">
-							            		<input placeholder="'.$rangs[$j].'" id="rang" type="number" class="validate">
+							            		<input type="number" value="'.$rangs[$j].'" id="rang" name="rang'.$j.'" class="validate">
 							          		</div>
 											<br/>
 											<p class="col l6">
-								      			<input type="checkbox" id="'.$i.''.$j.'"/>
+								      			<input type="checkbox" id="'.$i.''.$j.'"  name="promo'.$j.'" checked />
 								      			<label for="'.$i.''.$j.'">'.$promos[$j].'</label>
+												<input name="nom'.$j.'" value="'.$promos[$j].'" type="hidden" />
 											</p>
 										</div>';
 							}
+							//non posséder par le fichier
+							foreach ($promotions as $promotion) {
+								for ($k=0;$k<count($promos);$k++) {
+									if ($promos[$k]==$promotion['promo']){
+										$p=$promos[$k];
+									}
+								}
+								if ($promotion['promo']!="" && $promotion['promo']!=$p){
+									echo '<div class="row">
+												<input name="max" value="'.$j.'" type="hidden" />
+												<div class="input-field inline col l2">
+								            		<input type="number" value="0" id="rang" name="rang'.$j.'" class="validate">
+								          		</div>
+												<br/>
+												<p class="col l6">
+									      			<input type="checkbox" id="'.$i.''.$j.'"  name="promo'.$j.'" />
+									      			<label for="'.$i.''.$j.'">'.$promotion['promo'].'</label>
+													<input name="nom'.$j.'" value="'.$promotion['promo'].'" type="hidden" />
+												</p>
+											</div>';
+									$j++;
+								}
+							}
 						echo '
 											</div>
-											<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sauvegarder et quitter</a>
+											<input type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat" value="Sauvegarder et quitter" />
 										</form>
 								</div>
 							</div>
@@ -118,26 +156,32 @@
     				</div>
 
 						<h5>Cochez les promos à lier</h5>
-						<div class="row">
-							<div class="input-field inline col l2">
-            		<input placeholder="Rang" id="rang" type="number" class="validate">
-          		</div>
-							<br/>
-							<p class="col l6">
-	      				<input type="checkbox" id="test52"/>
-	      				<label for="test52">Promo 1</label>
-							</p>
-						</div>
-						<div class="row">
-							<div class="input-field inline col l2">
-            		<input placeholder="Rang" id="rang" type="number" class="validate">
-          		</div>
-							<br/>
-							<p class="col l6">
-	      				<input type="checkbox" id="test63" checked="checked"/>
-	      				<label for="test63">Promo 2</label>
-							</p>
-						</div>
+						<?php
+							//non posséder par le fichier
+							foreach ($promotions as $promotion) {
+								for ($k=0;$k<count($promos);$k++) {
+									if ($promos[$k]==$promotion['promo']){
+										$p=$promos[$k];
+									}
+								}
+								if ($promotion['promo']!="" && $promotion['promo']!=$p){
+
+									echo '<div class="row">
+												<input name="max" value="'.$j.'" type="hidden" />
+												<div class="input-field inline col l2">
+								            		<input type="number" value="0" id="rang" name="rang'.$j.'" class="validate">
+								          		</div>
+												<br/>
+												<p class="col l6">
+									      			<input type="checkbox" id="'.$i.''.$j.'"  name="promo'.$j.'" />
+									      			<label for="'.$i.''.$j.'">'.$promotion['promo'].'</label>
+													<input name="nom'.$j.'" value="'.$promotion['promo'].'" type="hidden" />
+												</p>
+											</div>';
+									$j++;
+								}
+							}
+							?>
 
 					</div>
       		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sauvegarder et quitter</a>
