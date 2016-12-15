@@ -20,21 +20,21 @@ Add these lines
 ### mysql
 
 ```
-dbname : front
+dbname : doc_rentree
 ```
 
 ```
-user : front
+user : CIR32016
 ```
 
 ```
-password : front
+password : CIR32016
 ```
 
-### home page
+### front office
 
 ```
-user : whateveryouwanlulz
+user : nevermind
 ```
 
 ```

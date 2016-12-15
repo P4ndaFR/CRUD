@@ -3,9 +3,9 @@
 function connect(){
 
 	//variable de connexion
-	$dsn='mysql:dbname=front;host=127.0.0.1'; //db : doc_rentree
-	$user='front'; //CIR32016
-	$password='front'; //CIR32016
+	$dsn='mysql:dbname=doc_rentree;host=127.0.0.1'; //db : doc_rentree
+	$user='CIR32016'; //CIR32016
+	$password='CIR32016'; //CIR32016
 
 	//essai de la connexion
 	try {
@@ -58,7 +58,7 @@ function add_file(){
 
 	//execution
 	$query->execute();
- 	for ($i=0;$i<=$max;$i++) { 
+ 	for ($i=0;$i<=$max;$i++) {
 
  	if (isset($_POST['promo'.$i])) {
  		$case=$_POST['promo'.$i];
@@ -68,11 +68,11 @@ function add_file(){
  	$rang=$_POST['rang'.$i];
  	if ($case=='on'){
  		$promo=$_POST['nom'.$i];
- 		
+
  		$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$fichier."','".$promo."')");
-	
+
 		//execution
-		$query->execute();	
+		$query->execute();
  	}
 
  	}
@@ -88,12 +88,12 @@ function modify_file(){
  	$max=$_POST['max'];
  	$lib=$_POST['libelle'];
  	$fichier=$_POST['fichier'];
- 	
+
  	$query=$pdo->prepare("delete from document where fichier='".$fichier."'");
 
 	//execution
 	$query->execute();
- 	for ($i=0;$i<=$max;$i++) { 
+ 	for ($i=0;$i<=$max;$i++) {
 
  	if (isset($_POST['promo'.$i])) {
  		$case=$_POST['promo'.$i];
@@ -103,11 +103,11 @@ function modify_file(){
  	$rang=$_POST['rang'.$i];
  	if ($case=='on'){
  		$promo=$_POST['nom'.$i];
- 		
+
  		$query=$pdo->prepare("insert into document(rang,libelle,promo,fichier) values(".$rang.",'".$lib."','".$promo."','".$fichier."') ");
-	
+
 		//execution
-		$query->execute();	
+		$query->execute();
  	}
 
  	}
