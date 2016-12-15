@@ -38,7 +38,7 @@
 						}
 					//if = ajoute dans un tableau
 						echo '<li class="collection-item">'.$keep.'<a href="http://front.rentree.fr/CRUD/Bernard/?/delete_file"><i class="material-icons right">delete</i></a>
-					<a href="#m'.$i.'" class="modal-trigger"><i class="material-icons right">reorder</i></a></li>';
+					<a href="#m'.$i.'" class="modal-trigger"><i class="material-icons right">mode_edit</i></a></li>';
 						echo '
 							<div id="m'.$i.'" class="modal">
 							    <div class="modal-content">

@@ -2,9 +2,7 @@
 require_once "../limonade/lib/limonade.php";
 require "model/InitDB.php";
 
-
-dispatch("/hello","hello");
-dispatch("/home","home");
+dispatch("/","print_home");
 dispatch("/fichier","print_file");
 dispatch("/fichier/ajouter","add_file");
 dispatch("/fichier/modifier","modify_file");

@@ -15,7 +15,7 @@
           if($promo['promo'])
           {
             echo '<li class="collection-item">'.$promo['promo'].'<a href="http://front.rentree.fr/CRUD/Bernard/?/delete_file"><i class="material-icons right">delete</i></a>
-          <a href="#m'.$i.'" class="modal-trigger"><i class="material-icons right">reorder</i></a></li>';
+          <a href="#m'.$i.'" class="modal-trigger"><i class="material-icons right">mode_edit</i></a></li>';
             echo '
               <div id="m'.$i.'" class="modal">
                   <div class="modal-content">
@@ -46,7 +46,11 @@
 </div>
 
 <!-- Ajout d'un promo -->
-
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-large red" href="#add">
+    <i class="large material-icons">add</i>
+  </a>
+</div>
 <div id="add" class="modal">
     <div class="modal-content">
       <h4>Ajout d'une nouvelle promo :</h4>

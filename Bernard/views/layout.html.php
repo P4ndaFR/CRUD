@@ -12,16 +12,20 @@
     <title>Back-Office</title>
   </head>
   <body>
+
     <ul id="slide-out" class="side-nav fixed">
-      <img src="images/logo-isen.png" class="responsive-img"/>
+
       <div class=container>
-        <h5>Documents de rentrée<h5>
+        <?php echo '<img src="images/logo-isen.png" class="responsive-img"/>'; ?>
+        <li><h5>Documents de rentrée<h5></li>
             <?php echo
-            '
+            '<li>
               <ul>
+                  <li><a href="'.url_for('/').'" >Accueil</a></li>
                   <li><a href="'.url_for('fichier').'">Fichiers</a></li>
                   <li><a href="'.url_for('promos').'">Promotions</a></li>
               </ul>
+              </li>
               ';
             ?>
       </div>
