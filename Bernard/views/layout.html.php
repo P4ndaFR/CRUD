@@ -13,35 +13,17 @@
   </head>
   <body>
     <ul id="slide-out" class="side-nav fixed">
-      <img src="../rentree/images/logo_ISEN.png" class="responsive-img"/>
+      <img src="images/logo-isen.png" class="responsive-img"/>
       <div class=container>
         <h5>Documents de rentrée<h5>
-              <ul class="collapsible" data-collapsible="accordion">
-                  <li>
-                    <div class="collapsible-header">
-                      <i class="material-icons">keyboard_arrow_down</i><a>Fichiers</a>
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
-                        <li><a href="">Ajouter un fichier</a></li>
-                        <li><a href="">Supprimer un fichier</a></li>
-                        <li><a href="">Modifier un fichier</a></li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="collapsible-header">
-                      <i class="material-icons">keyboard_arrow_down</i><a>Promotions</a>
-                    </div>
-                    <div class="collapsible-body">
-                      <ul>
-                        <li><a href="">Ajouter une promotion</a></li>
-                        <li><a href="">Supprimer une promotion</a></li>
-                        <li><a href="">Modifier une promotion</a></li>
-                      </ul>
-                    </div>
-                  </li>
+            <?php echo
+            '
+              <ul>
+                  <li><a href="'.url_for('fichier').'">Fichiers</a></li>
+                  <li><a href="'.url_for('promos').'">Promotions</a></li>
               </ul>
+              ';
+            ?>
       </div>
   </ul>
 
