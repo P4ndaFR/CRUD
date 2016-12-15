@@ -1,23 +1,5 @@
 <?php
 
-function connect(){
-
-	//variable de connexion
-	$dsn='mysql:dbname=front;host=127.0.0.1'; //db : doc_rentree
-	$user='front'; //CIR32016
-	$password='front'; //CIR32016
-
-	//essai de la connexion
-	try {
-		$pdo = new PDO($dsn,$user,$password);
-	} catch (PDOException $e) {
-		echo "Connexion échouée : ".$e->getMessage();
-	}
-
-	return $pdo;
-
-}
-
 //fonction d'affichage
 function print_file(){
 
@@ -44,14 +26,6 @@ function add_file(){
 	$pdo=connect();
 
 	//récupération des valeurs du formulaire
-	$fichier = $_POST['fichier'];
-
-	//si valeur null ne pas faire la requête car inutile
-	if ($fichier!= null) {
-		$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$fichier."')");
-		$query->execute();
-	}
-
 	$max=$_POST['max'];
  	$lib=$_POST['libelle'];
  	$fichier=$_POST['fichier'];
@@ -68,11 +42,11 @@ function add_file(){
  	$rang=$_POST['rang'.$i];
  	if ($case=='on'){
  		$promo=$_POST['nom'.$i];
- 		
- 		$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$fichier."','".$promo."')");
+ 		echo $fichier." - ".$lib."<br/>".$rang." - ".$promo;
+ 		//$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$fichier."','".$promo."')");
 	
 		//execution
-		$query->execute();	
+		//$query->execute();	
  	}
 
  	}
@@ -127,8 +101,6 @@ function delete_file(){
 	$fichier = $_GET['fichier'];
 	$query=$pdo->prepare("delete from document where fichier='".$fichier."'");
 	$query->execute();
-	$query2=$pdo->prepare("delete from fichier where nom='".$fichier."'");
-	$query2->execute();
 
 	redirect_to('/fichier');
 

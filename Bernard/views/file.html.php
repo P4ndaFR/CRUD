@@ -140,14 +140,14 @@
 					<div class="container">
 						<h5>Saisissez le libellé du fichier</h5>
 						<div class="">
-          		<input placeholder="" id="first_name" type="text" class="validate">
+          		<input placeholder="" id="first_name" type="text" class="validate" name="libelle">
           		<label for="file">Libellé du Fichier</label>
         		</div>
 
     				<div class="file-field input-field">
       				<div class="btn">
         				<span>File</span>
-        				<input type="file">
+        				<input type="file" name="fichier">
       				</div>
       				<div class="file-path-wrapper">
         				<input class="file-path validate" type="text">
