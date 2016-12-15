@@ -39,9 +39,8 @@
 						}
 					//if = ajoute dans un tableau
 
-						echo '<form action="index.php/?/fichier/supprimer" method="GET">
+						echo '
 								<li class="collection-item">'.$keep.'
-									<input type="hidden" name="fichier" value="'.$keep.'" />
 									<a href="index.php/?/fichier/supprimer&fichier='.$keep.'">
 										<i class="material-icons right">delete</i>
 									</a>
@@ -49,7 +48,7 @@
 										<i class="material-icons right">mode_edit</i>
 									</a>
 								</li>
-							</form>';
+							';
 
 						echo '
 							<div id="m'.$i.'" class="modal">
