@@ -24,13 +24,15 @@ function add_promo(){
 	$pdo=connect();
 
 	//récupération des valeurs du formulaire
-	$promo = $_POST['promo'];
+ 	$promo=$_POST['promo'];
+	
+	$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('1','mise en base','default.txt','".$promo."')");
+		
+	//execution
+	$query->execute();	
+	
 
-	//si valeur null ne pas faire la requête car inutile
-	if ($promo!= null) {
-		$query=$pdo->prepare("insert into promo(nom) values('".$promo."')");
-		$query->execute();
-	}
+	redirect_to('/promos');
 }
 
 function modify_promo(){
@@ -42,8 +44,8 @@ function modify_promo(){
 
 	$query=$pdo->prepare("update document set promo='".$promo."' where promo='".$oldpromo."'");
 	$query->execute();
-	$query=$pdo->prepare("update promo set nom='".$promo."' where nom='".$oldpromo."'");
-	$query->execute();
+	
+	redirect_to('/promos');
 
 }
 
@@ -53,14 +55,13 @@ function delete_promo(){
 
 	//récupération de la valeur de la liste sélectionner
 	//pb récupération doit être faite par rapport à la ligne
-	$promo = $_POST['promo'];
+	$promo = $_GET['promo'];
 
 
 	$query=$pdo->prepare("delete from document where promo='".$promo."'");
 	$query->execute();
-	$query2=$pdo->prepare("delete from promo where nom='".$promo."'");
-	$query2->execute();
 
+	redirect_to('/promos');
 }
 
 ?>
