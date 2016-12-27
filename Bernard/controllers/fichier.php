@@ -30,24 +30,21 @@ function add_file(){
  	$lib=$_POST['libelle'];
  	$fichier=$_POST['fichier'];
 
-	//execution
-	$query->execute();
  	for ($i=0;$i<=$max;$i++) { 
 
- 	if (isset($_POST['promo'.$i])) {
- 		$case=$_POST['promo'.$i];
- 	} else {
- 		$case ='off';
- 	}
- 	$rang=$_POST['rang'.$i];
- 	if ($case=='on'){
- 		$promo=$_POST['nom'.$i];
- 		echo $fichier." - ".$lib."<br/>".$rang." - ".$promo;
- 		//$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$fichier."','".$promo."')");
-	
-		//execution
-		//$query->execute();	
- 	}
+	 	if (isset($_POST['promo'.$i])) {
+	 		$case=$_POST['promo'.$i];
+	 	} else {
+	 		$case ='off';
+	 	}
+	 	$rang=$_POST['rang'.$i];
+	 	if ($case=='on'){
+	 		$promo=$_POST['nom'.$i];
+	 		$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$fichier."','".$promo."')");
+		
+			//execution
+			$query->execute();	
+	 	}
 
  	}
 
