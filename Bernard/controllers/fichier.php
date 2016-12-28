@@ -40,7 +40,18 @@ function add_file(){
 	 	$rang=$_POST['rang'.$i];
 	 	if ($case=='on'){
 	 		$promo=$_POST['nom'.$i];
-	 		$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$fichier."','".$promo."')");
+
+	 		$testrang=$pdo->prepare("select rang from document where promo='".$promo."'");
+	 		$testrang->execute();
+	 		$oldrangs=$testrang->fetchAll(PDO::FETCH_ASSOC);
+
+	 		foreach ($oldrangs as $oldrang) {
+		 		if ($rang==$oldrang['rang']) {
+		 			$newrang=$oldrang['rang']+1;
+		 			$maj=$pdo->prepare("update document set rang='".$newrang."' where promo='".$promo."' and rang='".$oldrang['rang']."'");
+		 			$maj->execute();
+		 		}
+	 		}	 		$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$fichier."','".$promo."')");
 		
 			//execution
 			$query->execute();	
@@ -72,9 +83,24 @@ function modify_file(){
  		$case ='off';
  	}
  	$rang=$_POST['rang'.$i];
+
+
  	if ($case=='on'){
  		$promo=$_POST['nom'.$i];
  		
+ 		$testrang=$pdo->prepare("select rang from document where promo='".$promo."'");
+ 		$testrang->execute();
+ 		$oldrangs=$testrang->fetchAll(PDO::FETCH_ASSOC);
+
+ 		foreach ($oldrangs as $oldrang) {
+	 		if ($rang==$oldrang['rang']) {
+	 			$newrang=$oldrang['rang']+1;
+	 			$maj=$pdo->prepare("update document set rang='".$newrang."' where promo='".$promo."' and rang='".$oldrang['rang']."'");
+	 			$maj->execute();
+	 		}
+ 		}
+
+
  		$query=$pdo->prepare("insert into document(rang,libelle,promo,fichier) values(".$rang.",'".$lib."','".$promo."','".$fichier."') ");
 	
 		//execution
