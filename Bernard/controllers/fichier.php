@@ -33,26 +33,6 @@ function add_file(){
  	$lib=$_POST['libelle'];
  	$fichier=$_POST['fichier'];
 
-<<<<<<< HEAD
-	//execution
-	$query->execute();
- 	for ($i=0;$i<=$max;$i++) {
-
- 	if (isset($_POST['promo'.$i])) {
- 		$case=$_POST['promo'.$i];
- 	} else {
- 		$case ='off';
- 	}
- 	$rang=$_POST['rang'.$i];
- 	if ($case=='on'){
- 		$promo=$_POST['nom'.$i];
-
- 		$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$fichier."','".$promo."')");
-
-		//execution
-		$query->execute();
- 	}
-=======
  	//boucle for afin d'obtenir le rang et le nom de toutes les promos concerner par le formulaire
  	for ($i=0;$i<=$max;$i++) {
 
@@ -96,7 +76,7 @@ function add_file(){
 			//execution
 			$query->execute();
 	 	}
->>>>>>> 5a3488891e136022d5286ff34dd138ab017db81c
+
 
  	}
 
@@ -114,33 +94,12 @@ function modify_file(){
  	$max=$_POST['max'];
  	$lib=$_POST['libelle'];
  	$fichier=$_POST['fichier'];
-<<<<<<< HEAD
-
-=======
 
  	//suppression de tout les documents ayant le fichier indiqué
->>>>>>> 5a3488891e136022d5286ff34dd138ab017db81c
+
  	$query=$pdo->prepare("delete from document where fichier='".$fichier."'");
 	//execution
 	$query->execute();
-<<<<<<< HEAD
- 	for ($i=0;$i<=$max;$i++) {
-
- 	if (isset($_POST['promo'.$i])) {
- 		$case=$_POST['promo'.$i];
- 	} else {
- 		$case ='off';
- 	}
- 	$rang=$_POST['rang'.$i];
- 	if ($case=='on'){
- 		$promo=$_POST['nom'.$i];
-
- 		$query=$pdo->prepare("insert into document(rang,libelle,promo,fichier) values(".$rang.",'".$lib."','".$promo."','".$fichier."') ");
-
-		//execution
-		$query->execute();
- 	}
-=======
 
  	//boucle for afin d'obtenir le rang et le nom de toutes les promos concerner par le formulaire
  	for ($i=0;$i<=$max;$i++) {
@@ -188,7 +147,7 @@ function modify_file(){
 			//execution
 			$query->execute();
 	 	}
->>>>>>> 5a3488891e136022d5286ff34dd138ab017db81c
+
 
  	}
 
