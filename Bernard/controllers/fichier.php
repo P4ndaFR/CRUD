@@ -31,7 +31,14 @@ function add_file(){
 	//récupération des valeurs du formulaire
 	$max=$_POST['max'];
  	$lib=$_POST['libelle'];
- 	$fichier=$_POST['fichier'];
+
+	//Définition de l'emplacement
+	$uploaddir="../../rentree/pdf/";
+	$uploadfile = $uploaddir.basename($_FILES['fichier']['name']);
+
+	//Déplacement du fichier de l'emplacement temporaire vers le fichier d'upload;
+	move_uploaded_file($_FILES['fichier']['tmp_name'], $uploadfile);
+
 
  	//boucle for afin d'obtenir le rang et le nom de toutes les promos concerner par le formulaire
  	for ($i=0;$i<=$max;$i++) {
@@ -71,7 +78,7 @@ function add_file(){
 		 		}
 	 		}
 	 		//insértion des valeurs dans la base de données avec une requête d'insertion
-	 		$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$fichier."','".$promo."')");
+	 		$query=$pdo->prepare("insert into document(rang,libelle,fichier,promo) values('".$rang."','".$lib."','".$uploadfile."','".$promo."')");
 
 			//execution
 			$query->execute();
@@ -79,7 +86,6 @@ function add_file(){
 
 
  	}
-
  	//redirection vers la page d'affichage des fichiers
 	redirect_to('/fichier');
 
@@ -147,7 +153,6 @@ function modify_file(){
 			//execution
 			$query->execute();
 	 	}
-
 
  	}
 

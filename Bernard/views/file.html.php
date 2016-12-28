@@ -136,7 +136,7 @@
       <h4>Ajout d'un nouveau fichier :</h4>
     </div>
 	    <div class="modal-footer">
-				<form action="index.php/?/fichier/ajouter" method="POST">
+				<form action="index.php/?/fichier/ajouter" method="POST" enctype="multipart/form-data">
 					<div class="container">
 						<h5>Saisissez le libellé du fichier</h5>
 						<div class="">
@@ -147,7 +147,7 @@
     				<div class="file-field input-field">
       				<div class="btn">
         				<span>File</span>
-        				<input type="file" name="fichier">
+        				<input type="file" name="fichier" id="fichier">
       				</div>
       				<div class="file-path-wrapper">
         				<input class="file-path validate" type="text">
