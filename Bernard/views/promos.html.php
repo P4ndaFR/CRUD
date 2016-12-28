@@ -14,7 +14,10 @@
 				foreach ($promos as $promo) {
           if($promo['promo'])
           {
-            echo '<li class="collection-item">'.$promo['promo'].'<a href="http://front.rentree.fr/CRUD/Bernard/?/delete_file"><i class="material-icons right">delete</i></a>
+            echo '<li class="collection-item">'.$promo['promo'].'
+                  <a href="index.php/?/promos/supprimer&promo='.$promo['promo'].'">
+                    <i class="material-icons right">delete</i>
+                  </a>
           <a href="#m'.$i.'" class="modal-trigger"><i class="material-icons right">mode_edit</i></a></li>';
             echo '
               <div id="m'.$i.'" class="modal">
@@ -23,15 +26,16 @@
                   </div>
 
                     <div class="modal-footer">
-                      <form>
+                      <form action="index.php/?/promos/modifier" method="POST">
                         <div class="container">
-                          <h5>Saisissez le nom de la promo</h5>
+                          <h5>Saisissez le nouveau nom de la promo</h5>
                           <div class="">
-                                  <input placeholder="" id="first_name" type="text" class="validate">
+                                  <input name="oldpromo" value="'.$promo["promo"].'" type="hidden">
+                                  <input placeholder="" id="first_name" type="text" class="validate" value="'.$promo["promo"].'" name="promo">
                                   <label for="file">Nom de la promo</label>
                               </div>
                       </div>
-                      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sauvegarder et quitter</a>
+                      <input type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat" value="Sauvegarder et quitter" />
                     </form>
                 </div>
               </div>
@@ -56,15 +60,15 @@
       <h4>Ajout d'une nouvelle promo :</h4>
     </div>
 	    <div class="modal-footer">
-				<form>
+				<form action="index.php/?/promos/ajouter" method="POST">
 					<div class="container">
 						<h5>Saisissez le nom de la promo</h5>
 						<div class="">
-          		<input placeholder="" id="first_name" type="text" class="validate">
+          		<input placeholder="" id="first_name" type="text" class="validate" name="promo">
           		<label for="file">Nom de promo</label>
         		</div>
 					</div>
-      		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sauvegarder et quitter</a>
+      		<input type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat" value="Sauvegarder et quitter" />
 			</form>
     </div>
 </div>

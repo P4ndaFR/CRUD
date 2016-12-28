@@ -136,18 +136,18 @@
       <h4>Ajout d'un nouveau fichier :</h4>
     </div>
 	    <div class="modal-footer">
-				<form>
+				<form action="index.php/?/fichier/ajouter" method="POST">
 					<div class="container">
 						<h5>Saisissez le libellé du fichier</h5>
 						<div class="">
-          		<input placeholder="" id="first_name" type="text" class="validate">
+          		<input placeholder="" id="first_name" type="text" class="validate" name="libelle">
           		<label for="file">Libellé du Fichier</label>
         		</div>
 
     				<div class="file-field input-field">
       				<div class="btn">
         				<span>File</span>
-        				<input type="file">
+        				<input type="file" name="fichier">
       				</div>
       				<div class="file-path-wrapper">
         				<input class="file-path validate" type="text">
@@ -157,6 +157,7 @@
 						<h5>Cochez les promos à lier</h5>
 						<?php
 							//non posséder par le fichier
+							$j=0;
 							foreach ($promotions as $promotion) {
 								for ($k=0;$k<count($promos);$k++) {
 									if ($promos[$k]==$promotion['promo']){
@@ -168,7 +169,7 @@
 									echo '<div class="row">
 												<input name="max" value="'.$j.'" type="hidden" />
 												<div class="input-field inline col l2">
-								            		<input type="number" value="0" id="rang" name="rang'.$j.'" class="validate">
+								            		<input type="number" value="0" id="rang'.$j.'" name="rang'.$j.'" class="validate">
 								          		</div>
 												<br/>
 												<p class="col l6">
@@ -183,7 +184,7 @@
 							?>
 
 					</div>
-      		<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Sauvegarder et quitter</a>
+      		<input type="submit" class=" modal-action modal-close waves-effect waves-green btn-flat" value="Sauvegarder et quitter" />
 			</form>
     </div>
 </div>
